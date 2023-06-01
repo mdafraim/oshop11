@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 mt-5">
+            <form class="form-signin " #addProduct="ngForm" (ngSubmit)="productSubmit(addProduct.value)">
+                <div class="form-group">
+                 <label for="title">Title</label>
+                  <input type="text" id="title" name="title" ngModel #title="ngModel" class="form-control" required>
+                  <div class="alert alert-danger" *ngIf="title?.touched && title?.invalid">
+                    Please Enter Title..!
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <div class="input-group-append">
+                        <span class="input-group-text">$</span>
+                        <input type="number" id="price" name="price" ngModel #price="ngModel" class="form-control" required>
+                    </div> 
+                    <div class="alert alert-danger" *ngIf="price?.touched && price?.invalid">
+                        Please Enter Price..!
+                      </div>
+                   </div>
+                   <div class="form-group">
+                    <label for="category">category</label>
+                     <select ngModel #category="ngModel" name="category" id="category" class="form-control" required>
+                        <option value="">Select</option>
+                        <option *ngFor="let item of populate" [value]="item.name">{{item.name}}</option>
+                     </select>
+                   </div>
+                   <div class="form-group">
+                    <label for="imageUrl">Image URL</label>
+                     <input type="text" id="imageUrl" name="imageUrl" ngModel #imageUrl="ngModel" class="form-control" required>
+                     <div class="alert alert-danger" *ngIf="imageUrl?.touched && imageUrl?.invalid">
+                        Please Enter mageUrl..!
+                      </div>
+                   </div>
+                <button class="btn btn-lg btn-primary" type="submit">Add Product</button>
+              </form>
+        </div>
+        <div class="col-6 mt-5">
+            <div class="card mt-4" style="width: 18rem;">
+                <img class="card-img-top" [src]="imageUrl.value">
+                <div class="card-body">
+                  <h5 class="card-title">{{title.value}}</h5>
+                  <p class="card-text">{{price.value | currency: 'USD': true}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

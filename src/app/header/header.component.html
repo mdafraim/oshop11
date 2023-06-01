@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <a class="navbar-brand" routerLink="/">O</a>
+    <button class="navbar-toggler" (click)="isCollapsed = ! isCollapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shoping-cart">Shoping Cart</a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle data-toggle="dropdown" aria-expanded="false">Username</a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item" ngbDropdownItem routerLink="my-orders">My Orders</a>
+            <a class="dropdown-item" ngbDropdownItem routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item" ngbDropdownItem routerLink="/admin/products">Manage Products</a>
+            <a class="dropdown-item" ngbDropdownItem routerLink="">Log Out</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+
